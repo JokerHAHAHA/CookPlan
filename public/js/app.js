@@ -16,8 +16,7 @@ function run($rootScope, $location){
 }
 angular.module('app', ['ngRoute'])
     .config(config)
-    .controller('mainController', mainController)
-    .service('todoService', todoService)
+    .controller('homeCtrl', homeCtrl)
     /*.factory('', )*/
     .run(run);
 
