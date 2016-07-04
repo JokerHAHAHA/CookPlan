@@ -1,0 +1,9 @@
+@font-face {
+font-family: 'Chalk';
+src: url('../fonts/Colored Crayons.ttf');
+}
+
+nav-bar {
+	font-family: Chalk;
+	color: white;
+}

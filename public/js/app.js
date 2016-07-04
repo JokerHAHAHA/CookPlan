@@ -8,6 +8,7 @@ function config($routeProvider) {
 			redirectTo: '/'
 		});
 }
+
 function run($rootScope, $location){
 	var path = function() { return $location.path(); };
 	$rootScope.$watch(path, function(newVal, oldVal){
@@ -17,6 +18,9 @@ function run($rootScope, $location){
 angular.module('app', ['ngRoute'])
     .config(config)
     .controller('homeCtrl', homeCtrl)
+    .component('caca',{
+      templateUrl: "views/navBar.html"
+  	})
     /*.factory('', )*/
     .run(run);
 

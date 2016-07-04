@@ -1,0 +1,18 @@
+@font-face {
+font-family: 'Chalk';
+src: url('../fonts/Colored Crayons.ttf');
+}
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
+body {
+	background-image: url('../assets/home-background.jpg');
+	background-size: 100vw auto;
+	background-position: 0 10%;
+	background-repeat: no-repeat;
+}
+
+.title {
+	font-family: Pacifico;
+	color: orange;
+	font-size: 300%;
+}
