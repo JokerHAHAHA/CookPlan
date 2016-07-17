@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'Chalk';
+    src: url('../fonts/Colored Crayons.ttf');
+}
+@font-face {
+	font-family: 'Pacifico';
+	src: url('../fonts/Pacifico.ttf');
+}
+/*=====================================================*/
+/*all the page*/
+.meals {
+	height: 100vh;
+	padding: 2% 2%;
+}
+
+/*the book*/
+.notebook {
+    transform: rotate(5deg);
+    position: absolute;
+    top: 25%;
+    right: -4%;
+    width: 75%;
+}
+.illustrate {
+    position: absolute;
+    top: 40%;
+    right: 0%;
+    width: 30%;
+}
+
+/*the search bar*/
+.search-bar {
+    position: absolute;
+    top: 7%;
+    right: 24%;
+    width: 30%;
+}
+input[type=search] {
+    border-bottom: 2px solid #dc7205;
+    color: #dc7205;
+}
+input[type=search]:focus {
+    background-color: transparent!important;
+    color: #dc7205!important;
+}
+.search-bar .material-icons {
+    color: white!important;
+    font-size: 130%;
+}
+
+/*button add meals*/
+.btn-add {
+    position: absolute;
+    top: 10%;
+    right: 7%;
+    font-size: 250%;
+    text-shadow: none;
+    line-height: 43px;
+}
+
+/*===============================================================
+MODAL
+===============================================================*/
+.modal-meal {
+    max-height: 70%!important;
+}
+.modal-content {
+    background-image: url('../assets/meals/modal-background.png');
+    background-size: 33.33vw auto;
+    background-position: 0 0;
+}
+.modal-meal .divider {
+    background-color: #e67c0f;
+}
+.modal-meal .subtitle {
+    font-size: 200%;
+}
+.modal-meal img {
+    width: 100%;
+    cursor: pointer;
+}
+.modal-meal h5 {
+    text-align: center;
+}

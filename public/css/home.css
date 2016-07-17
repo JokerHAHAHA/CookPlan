@@ -1,0 +1,20 @@
+.home {
+	height: 100vh;
+	padding: 2% 2%;
+}
+.menu {
+	font-family: Chalk;
+    color: white;
+    position: absolute;
+    top: 28%;
+    right: -25%;
+    width: 75%;
+    transform: rotate(7deg);
+}
+.ardoise {
+    transform: rotate(7deg);
+    position: absolute;
+    top: -12%;
+    right: -4%;
+    width: 75%;
+}

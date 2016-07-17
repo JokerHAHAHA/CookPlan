@@ -1,0 +1,48 @@
+@font-face {
+	font-family: 'Chalk';
+	src: url('../fonts/Colored Crayons.ttf');
+}
+@font-face {
+	font-family: 'Pacifico';
+	src: url('../fonts/Pacifico.ttf');
+}
+@font-face {
+	font-family: 'Marmellata';
+	src: url('../fonts/Marmellata.ttf')
+}
+.marmellata {
+	font-family: 'Marmellata';
+}
+.pacifico {
+	font-family: 'Pacifico';
+}
+.chalk {
+	font-family: 'Chalk';
+}
+.textOrange {
+	color: #e67c0f;
+}
+/*===========================================================================*/
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	overflow: hidden;
+	background-image: url('../assets/background.jpg');
+	background-size: 100vw auto;
+	background-position: 0 10%;
+	background-repeat: no-repeat;
+}
+.active {
+	color: #e67c0f;
+	text-shadow: 10px 10px 3px #000;
+}
+.title {
+	z-index: 1;
+	margin: 0;
+	font-family: Pacifico;
+	color: #dc7205;
+	font-size: 700%;
+	text-shadow: 10px 10px 10px #fff;
+}

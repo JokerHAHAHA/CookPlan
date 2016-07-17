@@ -1,0 +1,21 @@
+@font-face {
+font-family: 'Chalk';
+src: url('../fonts/Colored Crayons.ttf');
+}
+@font-face {
+	font-family: 'Pacifico';
+	src: url('../fonts/Pacifico.ttf');
+}
+/*=====================================================*/
+nav-bar {
+    position: absolute;
+    bottom: 2%;
+}
+a {
+    font-family: Pacifico;
+    color: white;
+    text-shadow: 10px 10px 10px #000;
+}
+button:focus {
+	background-color: transparent;
+}
