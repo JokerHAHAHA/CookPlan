@@ -1,4 +1,7 @@
 node_modules/
 *.DS_Store
 config/database.js
+<<<<<<< HEAD
 *.psd
+=======
+>>>>>>> 7a798d5c236971586ffef4e9ff0557b6dc09b0ba

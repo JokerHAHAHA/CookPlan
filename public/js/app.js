@@ -4,10 +4,12 @@ function config($routeProvider) {
 			templateUrl: 'views/home.html',
 			controller: 'homeCtrl'
 		})
+
 		.when('/meals', {
 			templateUrl: 'views/meals.html',
 			controller: 'mealsCtrl'
 		})
+
 		.otherwise({
 			redirectTo: '/'
 		});
@@ -19,11 +21,13 @@ function run($rootScope, $location){
 		$rootScope.activetab = newVal;
 	});
 }
+
 angular.module('app', ['ngRoute', 'app.components'])
     .config(config)
     .controller('navBarCtrl', navBarCtrl)
     .controller('homeCtrl', homeCtrl)
     .controller('mealsCtrl', mealsCtrl)
+
     /*.factory('', )*/
     .run(run);
 
