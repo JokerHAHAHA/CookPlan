@@ -62,7 +62,7 @@ input[type=search]:focus {
 MODAL
 ===============================================================*/
 .modal-meal {
-    max-height: 70%!important;
+    max-height: 90%!important;
 }
 .modal-content {
     background-image: url('../assets/meals/modal-background.png');

@@ -17,14 +17,23 @@
 		<label for="name">Quel est son petit nom ?</label>
 	</div>
 
+	<div class="input-field col s3 offset-s2">
+
+		<!-- <div class="button" ngf-select="upload($file)">Upload on file select</div> -->
+		<img ngf-src="file">
+
+		{{file.$ngfName}}
+
+		<form name="form" class="cneter">
+			<a class="chalk waves-effect waves-light btn-large orange btn-block" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+			ngf-accept="'image/*'">{{file ? 'Changer de photo' : 'Choisir une photo'}}</a>
+			
+			<a ng-show="file" ng-click="submit()" class="chalk waves-effect waves-light btn-large orange btn-block">Je prends celle la !</a>
+		</form>
 
 
-	<!-- <div flow-init class="col s3 offset-s2">
-		<input type="file" flow-btn />
-		<input type="file" flow-btn flow-directory />
-		Input OR Other element as upload button
-		<span flow-btn>Upload File</span>
-	</div> -->
+
+	</div>
 
 
 	<!-- <div class="input-field col s3 offset-s2">

@@ -38,6 +38,13 @@ body {
 	color: #e67c0f;
 	text-shadow: 10px 10px 3px #000;
 }
+.center {
+	text-align: center;
+}
+.btn-block {
+	width: 100%;
+	margin: 5% 0;
+}
 .title {
 	z-index: 1;
 	margin: 0;

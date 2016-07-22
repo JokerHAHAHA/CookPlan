@@ -22,7 +22,7 @@ function run($rootScope, $location){
 	});
 }
 
-angular.module('app', ['ngRoute', 'app.components'])
+angular.module('app', ['ngRoute', 'app.components', 'ngFileUpload'])
     .config(config)
     .controller('navBarCtrl', navBarCtrl)
     .controller('homeCtrl', homeCtrl)
