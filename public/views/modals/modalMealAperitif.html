@@ -1,10 +1,35 @@
-<div class="row">
-	<div class="col s3 offset-s2" ng-click="modalView='choice2'">
+<div class="row" ng-show="modalView==choice2">
+	<div class="col s3 offset-s2" ng-click="modalView='name'">
 		<img src="../assets/meals/chips.png">
 		<h5 class="chalk">Mise en bouche</h5>
 	</div>
-	<div class="col s3 offset-s2">
+
+	<div class="col s3 offset-s2" ng-click="modalView='name'">
 		<img src="../assets/meals/aperitif-glass.png"> 
 		<h5 class="chalk">A boire</h5>
 	</div>
+</div>
+
+<div class="row" ng-show="modalView=='name'">
+
+	<div class="input-field col s3 offset-s2">
+		<input id="name" type="text">
+		<label for="name">Quel est son petit nom ?</label>
+	</div>
+
+
+
+	<!-- <div flow-init class="col s3 offset-s2">
+		<input type="file" flow-btn />
+		<input type="file" flow-btn flow-directory />
+		Input OR Other element as upload button
+		<span flow-btn>Upload File</span>
+	</div> -->
+
+
+	<!-- <div class="input-field col s3 offset-s2">
+		<input id="avatar" type="text">
+		<label for="avatar">Quel est son petit nom ?</label>
+	</div> -->
+	
 </div>

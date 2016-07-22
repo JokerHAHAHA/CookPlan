@@ -2,7 +2,6 @@
 
 	<h1 class="title">Cook Plan</h1>
 	
-
 	<nav-bar></nav-bar>
 
 	<form class="search-bar">
@@ -38,7 +37,7 @@ MODAL ADD
 				<h5 class="marmellata subtitle">Quel type de plat voulez-vous ajouter ...</h5>
 			</div>
 			<div class="row">
-				<div class="col s2" ng-click="modalView='choice2'">
+				<div class="col s2" ng-click="modalView=choice2">
 					<img src="../assets/meals/logo-apero.png">
 					<h5 class="chalk">Aperitifs</h5>
 				</div>
@@ -65,7 +64,7 @@ MODAL ADD
 			</div>
 		</div><!-- END NGSHOW CHOICE -->
 		
-		<modal-meal-aperitif ng-show="modalView=='choice2'"></modal-meal-aperitif>
+		<modal-meal-aperitif ng-show="modalView!='choice1'"></modal-meal-aperitif>
 
 	</div><!-- END MODAL CONTENT -->
 
