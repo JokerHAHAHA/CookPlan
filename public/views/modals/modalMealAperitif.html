@@ -1,44 +1,47 @@
-<div class="row" ng-show="modalView==choice2">
-	<div class="col s3 offset-s2" ng-click="modalView='name'">
-		<img src="../assets/meals/chips.png">
-		<h5 class="chalk">Mise en bouche</h5>
-	</div>
-
-	<div class="col s3 offset-s2" ng-click="modalView='name'">
-		<img src="../assets/meals/aperitif-glass.png"> 
-		<h5 class="chalk">A boire</h5>
-	</div>
-</div>
-
-<div class="row" ng-show="modalView=='name'">
-
-	<div class="input-field col s3 offset-s2">
-		<input id="name" type="text">
-		<label for="name">Quel est son petit nom ?</label>
-	</div>
-
-	<div class="input-field col s3 offset-s2">
-
-		<!-- <div class="button" ngf-select="upload($file)">Upload on file select</div> -->
-		<img ngf-src="file">
-
-		{{file.$ngfName}}
-
-		<form name="form" class="cneter">
-			<a class="chalk waves-effect waves-light btn-large orange btn-block" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
-			ngf-accept="'image/*'">{{file ? 'Changer de photo' : 'Choisir une photo'}}</a>
-			
-			<a ng-show="file" ng-click="submit()" class="chalk waves-effect waves-light btn-large orange btn-block">Je prends celle la !</a>
-		</form>
+<div class="modalMealAperitif">
 
 
+	<!-- EAT OR DRINK APERITIF -->
+	<div class="row" ng-show="modalView==choice2">
+		<div class="col s3 offset-s2" ng-click="modalView='name'; $('#lean-overlay').remove()">
+			<img src="../assets/meals/chips.png">
+			<h5 class="chalk">Mise en bouche</h5>
+		</div>
 
+		<div class="col s3 offset-s2" ng-click="modalView='name'">
+			<img src="../assets/meals/aperitif-glass.png"> 
+			<h5 class="chalk">A boire</h5>
+		</div>
 	</div>
 
 
-	<!-- <div class="input-field col s3 offset-s2">
-		<input id="avatar" type="text">
-		<label for="avatar">Quel est son petit nom ?</label>
-	</div> -->
-	
+	<!-- NAME AND PICTURE -->
+	<div class="row" ng-show="modalView=='name'">
+
+		<button ng-click="modalView='details'" class="btn modal-trigger btn-floating btn-large waves-effect waves-light orange right bold">></button>
+
+		<!-- NAME -->
+		<div class="input-field col s3 offset-s2">
+			<input id="name" type="text" required>
+			<label for="name">Quel est son petit nom ?</label>
+		</div>
+
+		<!-- PICTURE -->
+		<div class="input-field col s3 offset-s2">
+
+			<img ngf-src="file">
+
+			<form name="form" class="center">
+				<a class="chalk waves-effect waves-light btn-large orange btn-block" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+				ngf-accept="'image/*'">{{file ? 'Changer de photo' : 'Choisir une photo'}}</a>
+
+				<a ng-show="file" ng-click="submit()" class="chalk waves-effect waves-light btn-large orange btn-block">Je prends celle la !</a>
+			</form>
+
+		</div>
+
+	</div>
+
+	<h1 ng-show="modalView=='details'">DETAILS</h1>
+
 </div>

@@ -29,23 +29,25 @@
 }
 
 /*the search bar*/
-.search-bar {
+.input-form {
     position: absolute;
     top: 7%;
     right: 24%;
     width: 30%;
 }
-input[type=search] {
-    border-bottom: 2px solid #dc7205;
-    color: #dc7205;
-}
-input[type=search]:focus {
-    background-color: transparent!important;
+input {
+    border-bottom: 2px solid #dc7205!important;
     color: #dc7205!important;
 }
+input:focus {
+    background-color: transparent!important;
+    color: #dc7205!important;
+    box-shadow: none!important;
+}
+
 .search-bar .material-icons {
     color: white!important;
-    font-size: 130%;
+    font-size: 130%!important;
 }
 
 /*button add meals*/
@@ -69,8 +71,12 @@ MODAL
     background-size: 33.33vw auto;
     background-position: 0 0;
 }
+#materialize-lean-overlay-2 {
+    display: none!important;
+}
 .modal-meal .divider {
     background-color: #e67c0f;
+    margin-bottom: 3%;
 }
 .modal-meal .subtitle {
     font-size: 200%;
@@ -82,3 +88,14 @@ MODAL
 .modal-meal h5 {
     text-align: center;
 }
+.modalMealAperitif label {
+    color: #dc7205!important;
+    font-size: 130%!important;
+    text-shadow: none;
+}
+
+
+
+
+
+

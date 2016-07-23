@@ -1,4 +1,5 @@
 node_modules/
+work datas/
 *.DS_Store
 config/database.js
 *.psd

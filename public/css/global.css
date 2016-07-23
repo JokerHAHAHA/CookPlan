@@ -22,6 +22,9 @@
 .textOrange {
 	color: #e67c0f;
 }
+.bold {
+	font-weight: bold!important;
+}
 /*===========================================================================*/
 * {
 	margin: 0;
