@@ -1,20 +1,35 @@
 function mealsCtrl ($scope, $rootScope, $http, Upload) {
-	$(document).ready(function(){
-    	// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    	$('.modal-trigger').leanModal();
+    
+    function load () { 
+        // get info from Json about ingredients
+        $http.get('./datas/ingredients.json').success(function (data) {
+            $scope.ingredients = data;
+        });
+    }
+
+    // to activate modal materialize
+    $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+    });
+
+    // to activate option materialize
+    $(document).ready(function() {
+        $('select').material_select();
     });
 
 
-	// upload later on form submit or something similar 
+    // =========================UPLOAD=========================
+    // upload later on form submit or something similar 
     $scope.submit = function() {
-      if ($scope.form.file.$valid && $scope.file) {
-        $scope.upload($scope.file);
-      }
+        if ($scope.form.file.$valid && $scope.file) {
+            $scope.upload($scope.file);
+        }
     };
 
     // upload on file select or drop 
     $scope.upload = function (file) {
-    	console.log(file);
+        console.log(file);
         Upload.upload({
             url: 'meals',
             data: {file: file, 'username': $scope.username}
@@ -27,4 +42,7 @@ function mealsCtrl ($scope, $rootScope, $http, Upload) {
             console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     };
+    // ========================= END UPLOAD=========================
+
+    load();
 }

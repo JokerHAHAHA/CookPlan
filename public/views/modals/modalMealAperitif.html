@@ -1,7 +1,8 @@
 <div class="modalMealAperitif">
 
-
-	<!-- EAT OR DRINK APERITIF -->
+	<!-- =======================================
+	EAT OR DRINK APERITIF
+	======================================= -->
 	<div class="row" ng-show="modalView==choice2">
 		<div class="col s3 offset-s2" ng-click="modalView='name'; $('#lean-overlay').remove()">
 			<img src="../assets/meals/chips.png">
@@ -14,8 +15,9 @@
 		</div>
 	</div>
 
-
-	<!-- NAME AND PICTURE -->
+	<!-- =======================================
+	NAME AND PICTURE
+	======================================= -->
 	<div class="row" ng-show="modalView=='name'">
 
 		<button ng-click="modalView='details'" class="btn modal-trigger btn-floating btn-large waves-effect waves-light orange right bold">></button>
@@ -41,7 +43,106 @@
 		</div>
 
 	</div>
+	
+	<!-- =======================================
+	DETAILS
+	======================================= -->
+	<div class="details-aperitif" ng-show="modalView=='details'">
 
-	<h1 ng-show="modalView=='details'">DETAILS</h1>
+		<h5 class="marmellata textOrange">Ingredients</h5>
+		
+		<!-- first row of select -->
+		<div class="row textOrange">
+
+			<!-- ========================================================== -->
+			<!-- ingredients choice -->
+			<div class="input-field">
+				<select class="browser-default col s2 offset-s1 transparent">
+					<option value="" disabled selected>Choisissez un ingrédient</option>
+					<option ng-repeat="name in ingredients.names track by $index">{{name}}</option>
+				</select>
+			</div><!-- end ingredients choice -->
+
+			<!-- unitiy choice -->
+			<div class="input-field">
+				<select class="browser-default col s1 transparent">
+					<option value="" disabled selected>Unité</option>
+					<option ng-repeat="unity in ingredients.unities track by $index">{{unity}}</option>
+				</select>
+			</div><!-- end unity choice -->
+			<!-- ========================================================== -->
+
+
+			<!-- ========================================================== -->
+			<!-- ingredients choice -->
+			<div class="input-field">
+				<select class="browser-default col s2 offset-s1 transparent">
+					<option value="" disabled selected>Choisissez un ingrédient</option>
+					<option ng-repeat="name in ingredients.names track by $index">{{name}}</option>
+				</select>
+			</div><!-- end ingredients choice -->
+
+			<!-- unitiy choice -->
+			<div class="input-field">
+				<select class="browser-default col s1 transparent">
+					<option value="" disabled selected>Unité</option>
+					<option ng-repeat="unity in ingredients.unities track by $index">{{unity}}</option>
+				</select>
+			</div><!-- end unity choice -->
+			<!-- ========================================================== -->
+
+
+			<!-- ========================================================== -->
+			<!-- ingredients choice -->
+			<div class="input-field">
+				<select class="browser-default col s2 offset-s1 transparent">
+					<option value="" disabled selected>Choisissez un ingrédient</option>
+					<option ng-repeat="name in ingredients.names track by $index">{{name}}</option>
+				</select>
+			</div><!-- end ingredients choice -->
+
+			<!-- unitiy choice -->
+			<div class="input-field">
+				<select class="browser-default col s1 transparent">
+					<option value="" disabled selected>Unité</option>
+					<option ng-repeat="unity in ingredients.unities track by $index">{{unity}}</option>
+				</select>
+			</div><!-- end unity choice -->
+			<!-- ========================================================== -->
+
+		</div>
+
+		<div class="row textOrange">
+
+			<!-- ========================================================== -->
+			<!-- ingredients choice -->
+			<div class="input-field">
+				<select class="browser-default col s2 offset-s1 transparent">
+					<option value="" disabled selected>Choisissez un ingrédient</option>
+					<option ng-repeat="name in ingredients.names track by $index">{{name}}</option>
+				</select>
+			</div><!-- end ingredients choice -->
+
+			<!-- unitiy choice -->
+			<div class="input-field">
+				<select class="browser-default col s1 transparent">
+					<option value="" disabled selected>Unité</option>
+					<option ng-repeat="unity in ingredients.unities track by $index">{{unity}}</option>
+				</select>
+			</div><!-- end unity choice -->
+			<!-- ========================================================== -->
+
+		</div>
+
+
+	</div>
 
 </div>
+
+
+
+
+
+
+
+
