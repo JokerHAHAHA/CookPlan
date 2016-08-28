@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %} Kanban {% endblock %}</title>
+    <title>{% block title %} Cook Plan {% endblock %}</title>
 
     <!-- CSS -->
     <!-- Compiled and minified CSS -->
@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     
-    <link rel="stylesheet" href="www/assets/css/global.css">
+    <link rel="stylesheet" href="../www/assets/css/global.css">
 
     <!-- JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -25,28 +25,28 @@
 <body>
     {% block body %}
 
+        {% block navbar %}
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="#!" class="brand-logo">Cook Plan</a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="sass.html">HOME</a></li>
+                        <li><a href="./meals.php">MES PLATS</a></li>
+                        <li><a href="./plans.php">MON PLANNING</a></li>
+                        <li><a href="./">MES COURSES</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a href="sass.html">HOME</a></li>
+                        <li><a href="badges.html">MES PLATS</a></li>
+                        <li><a href="collapsible.html">MON PLANNING</a></li>
+                        <li><a href="mobile.html">MES COURSES</a></li>
+                    </ul>
+                </div>
+            </nav>
+        {% endblock %}
 
-
-     <nav>
-        <div class="nav-wrapper">
-            <a href="#!" class="brand-logo">Cook Plan</a>
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="sass.html">HOME</a></li>
-            <li><a href="badges.html">MES PLATS</a></li>
-            <li><a href="collapsible.html">MON PLANNING</a></li>
-            <li><a href="collapsible.html">MES COURSES</a></li>
-        </ul>
-        <ul class="side-nav" id="mobile-demo">
-            <li><a href="sass.html">HOME</a></li>
-            <li><a href="badges.html">MES PLATS</a></li>
-            <li><a href="collapsible.html">MON PLANNING</a></li>
-            <li><a href="mobile.html">MES COURSES</a></li>
-        </ul>
-    </div>
-</nav>
-
-{% endblock %}
+    {% endblock %}
 </body>
 
 </html>
