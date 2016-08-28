@@ -1,0 +1,52 @@
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Kanban {% endblock %}</title>
+
+    <!-- CSS -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="www/assets/css/global.css">
+
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <!-- files -->
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+</head>
+
+<body>
+    {% block body %}
+
+
+
+     <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Cook Plan</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="sass.html">HOME</a></li>
+            <li><a href="badges.html">MES PLATS</a></li>
+            <li><a href="collapsible.html">MON PLANNING</a></li>
+            <li><a href="collapsible.html">MES COURSES</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="sass.html">HOME</a></li>
+            <li><a href="badges.html">MES PLATS</a></li>
+            <li><a href="collapsible.html">MON PLANNING</a></li>
+            <li><a href="mobile.html">MES COURSES</a></li>
+        </ul>
+    </div>
+</nav>
+
+{% endblock %}
+</body>
+
+</html>
