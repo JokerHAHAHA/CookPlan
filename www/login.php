@@ -24,6 +24,7 @@ $login = new User();
 
 if(isset($_POST['btn-signin']))
 {
+
     $uname = strip_tags($_POST['login']);
     $umail = strip_tags($_POST['login']);
     $upass = strip_tags($_POST['password']);
@@ -34,9 +35,11 @@ if(isset($_POST['btn-signin']))
     }
     else
     {
-        $error = "Les infos sont incorrectes";
+        echo $twig->render('login.html.twig', array('error' => "Les informations sont incorrectes"));
     }   
-}else{
+}
+else
+{
     echo $twig->render('login.html.twig');
 }
 
