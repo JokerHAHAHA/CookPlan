@@ -1,8 +1,6 @@
 <?php
 
-namespace Cookplan\Model\User;
-use Cookplan\Model\Database;
-
+include '../Model/Database.php';
  /**
   * 
   */
@@ -10,7 +8,6 @@ class User
 {	
 
 	private $conn;
-	public $test = 'pipi';
 	
 	public function __construct()
 	{
@@ -38,8 +35,8 @@ class User
 			$stmt->bindparam(":umail", $umail);
 			$stmt->bindparam(":upass", $new_password);										  
 				
-			$stmt->execute();	
-			
+			$stmt->execute();
+	
 			return $stmt;	
 		}
 		catch(PDOException $e)
@@ -94,6 +91,7 @@ class User
 		unset($_SESSION['user_session']);
 		return true;
 	}
+
 }
 
 

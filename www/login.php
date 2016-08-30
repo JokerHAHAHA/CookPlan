@@ -1,8 +1,7 @@
 <?php
 
-session_start();
-use Cookplan\Autoloader;
-use Cookplan\Model\User;
+// session_start();
+
 //load Twig
 include_once('../twig/lib/Twig/Autoloader.php');
 Twig_Autoloader::register();
@@ -11,32 +10,33 @@ $twig = new Twig_Environment($loader, array(
   'cache' => false
   ));
 
-
-require '../src/Autoloader.php';
-Autoloader::require();
-
+// require '../src/Autoloader.php';
+// Autoloader::require();
+include '../src/Model/Database.php';
+include '../src/Model/User.php';
 $login = new User();
-//var_dump('coucou');
+
 // if($login->is_loggedin()!="")
 // {
-//     echo $twig->render('meals.html.twig');
+//     echo "string";
+//     $login->redirect('./meals.php');
 // }
 
-// if(isset($_POST['btn-signin']))
-// {
-//     $uname = strip_tags($_POST['txt_uname_email']);
-//     $umail = strip_tags($_POST['txt_uname_email']);
-//     $upass = strip_tags($_POST['txt_password']);
+if(isset($_POST['btn-signin']))
+{
+    $uname = strip_tags($_POST['login']);
+    $umail = strip_tags($_POST['login']);
+    $upass = strip_tags($_POST['password']);
 
-//     if($login->doLogin($uname,$umail,$upass))
-//     {
-//         $login->redirect('www/login.php');
-//     }
-//     else
-//     {
-//         $error = "Les infos sont incorrectes";
-//     }   
-// }
+    if($login->doLogin($uname,$umail,$upass))
+    {
+        $login->redirect('meals.php');
+    }
+    else
+    {
+        $error = "Les infos sont incorrectes";
+    }   
+}else{
+    echo $twig->render('login.html.twig');
+}
 
-
-echo $twig->render('login.html.twig');

@@ -3,25 +3,25 @@
 {% block body %}
 
   <div class="container row">
-    <form class="col s12">
+    <form class="col s12" method="post">
 
       <h1>SE CONNECTER</h1>
       <hr>
       <div class="row">
         <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
+          <input id="last_name" type="text" name="login" value="papa" class="validate">
           <label for="last_name">Ton Nom</label>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
+          <input id="password" type="password" name="password" value="rastafari" class="validate">
           <label for="password">Password</label>
         </div>
       </div>
 
-      <a type="submit" name="btn-signin" class="waves-effect waves-light btn">connexion</a>
+      <button type="submit" name="btn-signin" class="waves-effect waves-light btn">connexion</button>
 
     </form>
   </div>
