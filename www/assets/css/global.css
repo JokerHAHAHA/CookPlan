@@ -1,0 +1,8 @@
+.btn-signout {
+    top: 0;
+    position: absolute;
+    font-size: 35%;
+    left: 130%;
+    background: transparent;
+    border: none;
+}

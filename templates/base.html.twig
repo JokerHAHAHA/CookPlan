@@ -33,7 +33,9 @@
                     {% if user is defined %}
                         <span class="brand-logo center">
                             {{user['user_name']}}
-                            <a href="logout.php?logout=true">&nbsp;me déconnecter</a>
+                            <form method="post">
+                                <button class="btn-signout" type="submit" name="btn-signout">me déconnecter</button>
+                            </form>
                         </span>
                     {% endif %}
 
