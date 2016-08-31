@@ -29,6 +29,14 @@
             <nav>
                 <div class="nav-wrapper">
                     <a href="#!" class="brand-logo">Cook Plan</a>
+                    
+                    {% if user is defined %}
+                        <span class="brand-logo center">
+                            {{user['user_name']}}
+                            <a href="logout.php?logout=true">&nbsp;me déconnecter</a>
+                        </span>
+                    {% endif %}
+
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="sass.html">HOME</a></li>

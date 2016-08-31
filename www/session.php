@@ -1,18 +1,19 @@
 <?php
 
-session_start();
-use Cookplan\Model\User;
-include_once('../twig/lib/Twig/Autoloader.php');
-Twig_Autoloader::register();
+use CookPlan\Autoloader;
+use CookPlan\Model\Database;
+use CookPlan\Model\User;
 
-$loader = new Twig_Loader_Filesystem('../templates'); // Dossier contenant les templates
-$twig = new Twig_Environment($loader, array(
-	'cache' => false
-	));
+require '../src/Autoloader.php';
+Autoloader::require();
 
+$session = new User();
+
+	// if user session is not active(not loggedin) this page will help 'home.php and profile.php' to redirect to login page
+	// put this file within secured pages that users (users can't access without login)
 
 if(!$session->is_loggedin())
 {
-	// session no set redirects to login page
-	$session->redirect('login.php');
+		// session no set redirects to login page
+	$session->redirect('../index.php');
 }

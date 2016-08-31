@@ -1,6 +1,10 @@
 <?php
 
-// session_start();
+session_start();
+
+use CookPlan\Autoloader;
+use CookPlan\Model\Database;
+use CookPlan\Model\User;
 
 //load Twig
 include_once('../twig/lib/Twig/Autoloader.php');
@@ -10,28 +14,25 @@ $twig = new Twig_Environment($loader, array(
   'cache' => false
   ));
 
-// require '../src/Autoloader.php';
-// Autoloader::require();
-include '../src/Model/Database.php';
-include '../src/Model/User.php';
+require '../src/Autoloader.php';
+Autoloader::require();
+
 $login = new User();
 
-// if($login->is_loggedin()!="")
-// {
-//     echo "string";
-//     $login->redirect('./meals.php');
-// }
+if($login->is_loggedin()!="")
+{
+    $login->redirect('./meals.php');
+}
 
 if(isset($_POST['btn-signin']))
 {
-
     $uname = strip_tags($_POST['login']);
     $umail = strip_tags($_POST['login']);
     $upass = strip_tags($_POST['password']);
 
     if($login->doLogin($uname,$umail,$upass))
     {
-        $login->redirect('meals.php');
+        header("Location: meals.php");
     }
     else
     {

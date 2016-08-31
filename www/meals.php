@@ -1,11 +1,37 @@
 <?php
 
-    include_once('../twig/lib/Twig/Autoloader.php');
-    Twig_Autoloader::register();
-    
-    $loader = new Twig_Loader_Filesystem('../templates'); // Dossier contenant les templates
-    $twig = new Twig_Environment($loader, array(
-      'cache' => false
-    ));
+session_start();
 
-    echo $twig->render('meals.html.twig');
+use CookPlan\Autoloader;
+use CookPlan\Model\Database;
+use CookPlan\Model\User;
+
+//load twig
+include_once('../twig/lib/Twig/Autoloader.php');
+Twig_Autoloader::register();
+
+$loader = new Twig_Loader_Filesystem('../templates'); 
+$twig = new Twig_Environment($loader, array(
+  'cache' => false
+  ));
+
+//load classes
+require '../src/Autoloader.php';
+Autoloader::require();
+
+$auth_user = new User();
+
+//check if connected
+if($auth_user->is_loggedin()){
+
+    $user_id = $_SESSION['user_session'];
+    $stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_id=:user_id");
+    $stmt->execute(array(":user_id"=>$user_id));
+
+    $user=$stmt->fetch(PDO::FETCH_ASSOC);
+
+    echo $twig->render('meals.html.twig', array('user'=>$user));
+
+}else{
+    $auth_user->redirect('../index.php');
+}

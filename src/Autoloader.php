@@ -1,6 +1,6 @@
 <?php
 
-namespace Cookplan;
+namespace CookPlan;
 
 /**
  * to require dynamicaly
