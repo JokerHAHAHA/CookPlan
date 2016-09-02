@@ -5,7 +5,7 @@
 
     <h3 class="center">AJOUTER {{title}} </h3>
 
-    <form class="padding-top row" action="addMeal.php" method="post">
+    <form class="padding-top row" action="addMeal.php?cat={{title}}" method="post">
 
         <span class="col s1 offset-s4">
             <input name="type" type="radio" id="hot" value="hot" />
@@ -23,11 +23,14 @@
             </div>
         </div>
 
-   
+
         <button type="submit" name="add-meal" class="col s4 offset-s4 waves-effect waves-light btn">enregistrer</button>
-     
 
     </form>
+
+    {% if save is defined %}
+        <h6 class="center">{{save}}</h6>
+    {% endif %}
 
 {% endblock %}
 

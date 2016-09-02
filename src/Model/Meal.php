@@ -24,15 +24,16 @@ Class Meal
     public static function create($name,$category,$type,$user) {
         $conn = new Database();
         $conn = $conn->dbConnection();
-        $sql  = "INSERT INTO meals
-                 VALUES (:name,:category,:type,:user";
+        $sql  = "INSERT INTO meals(name,category,type,user)
+                 VALUES (:name,:category,:type,:user)";
         $stmt = $conn->prepare($sql);
-        $stmt->execute(array(
-            ":name"=>$name,
-            ":category"=>$category,
-            ":type"=>$type,
-            ":user"=>$user
-            ));
+        $stmt->bindparam(":name", $name);
+        $stmt->bindparam(":category", $category);
+        $stmt->bindparam(":type", $type);                                        
+        $stmt->bindparam(":user", $user);                                        
+                
+        $stmt->execute();
+  
         return true;
     }
 
