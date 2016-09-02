@@ -5,6 +5,7 @@ session_start();
 use CookPlan\Autoloader;
 use CookPlan\Model\Database;
 use CookPlan\Model\User;
+use CookPlan\Model\Meals;
 
 //load twig
 include_once('../twig/lib/Twig/Autoloader.php');

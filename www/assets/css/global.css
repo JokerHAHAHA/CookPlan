@@ -1,4 +1,9 @@
-.btn-signout {
+nav .brand-logo
+{
+    padding-left: 5%;
+}
+.btn-signout
+{
     top: 0;
     position: absolute;
     font-size: 35%;

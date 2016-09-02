@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{parent()}}
+
+    <h3 class="center">AJOUTER {{title}} </h3>
+
+    <form class="padding-top row" action="addMeal.php" method="post">
+
+        <span class="col s1 offset-s4">
+            <input name="type" type="radio" id="hot" value="hot" />
+            <label for="hot">Chaud</label>
+        </span>
+        <span class="col s1 offset-s2">
+            <input name="type" type="radio" id="cold" value="cold" />
+            <label for="cold">Froid</label>
+        </span>
+
+        <div class="padding-top">
+            <div class="input-field col s4 offset-s4">
+                <input id="name" type="text" name="name" class="validate">
+                <label for="name">Son petit nom</label>
+            </div>
+        </div>
+
+   
+        <button type="submit" name="add-meal" class="col s4 offset-s4 waves-effect waves-light btn">enregistrer</button>
+     
+
+    </form>
+
+{% endblock %}
+
