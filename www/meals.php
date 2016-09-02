@@ -22,7 +22,6 @@ Autoloader::require();
 
 $auth_user = new User();
 
-
 //check if connected
 if($auth_user->is_loggedin())
 {
@@ -39,7 +38,7 @@ if($auth_user->is_loggedin())
         $currentUser_id = $_SESSION['user_session'];
         $user = User::findOne($currentUser_id);
         $meals = Meal::findAll($_SESSION['user_session']);
-        
+
         echo $twig->render('meals.html.twig', array(
             'user' =>$user,
             'meals'=>$meals
