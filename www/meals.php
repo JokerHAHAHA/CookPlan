@@ -5,7 +5,7 @@ session_start();
 use CookPlan\Autoloader;
 use CookPlan\Model\Database;
 use CookPlan\Model\User;
-use CookPlan\Model\Meals;
+use CookPlan\Model\Meal;
 
 //load twig
 include_once('../twig/lib/Twig/Autoloader.php');
@@ -25,6 +25,7 @@ $auth_user = new User();
 //check if connected
 if($auth_user->is_loggedin())
 {
+
     //manage logout
     if(isset($_POST['btn-signout']))
     {
@@ -34,13 +35,14 @@ if($auth_user->is_loggedin())
     else
     {
         //load datas
-        $user_id = $_SESSION['user_session'];
-        $stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_id=:user_id");
-        $stmt->execute(array(":user_id"=>$user_id));
+        $currentUser_id = $_SESSION['user_session'];
+        $user = User::findOne($currentUser_id);
+        $meals = Meal::findAll($_SESSION['user_session']);
 
-        $user=$stmt->fetch(PDO::FETCH_ASSOC);
-
-        echo $twig->render('meals.html.twig', array('user'=>$user));
+        echo $twig->render('meals.html.twig', array(
+            'user' =>$user,
+            'meals'=>$meals
+            ));
     }
 
 }

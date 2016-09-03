@@ -18,30 +18,78 @@
         </div>
 
 
-        <div id="aperitifs" class="col s12">
-            <a href="addMeal.php?cat=UN APERITIF" class="waves-effect waves-light center-align btn-flat col s3 offset-s5">ENREGISTRER UN APERITIF</a>
+        <div id="aperitifs" class="row">
+            <a href="addMeal.php?cat=UN APERITIF" class="waves-effect waves-light center-align btn-flat col s4 offset-s4">ENREGISTRER UN APERITIF</a>
+            
+            <div class="col s8 offset-s2" >
+                {% for meal in meals %}
+                    {% if meal['category']=='aperitif' %}
+                        <h3 class="center" >{{meal['name']}}</h3>
+                    {% endif %}
+                {% endfor %}
+            </div>
             
         </div>
 
         <div id="starters" class="col s12">
-            <a href="addMeal.php?cat=UNE ENTREE" class="waves-effect waves-light center-align btn-flat col s3 offset-s5">ENREGISTRER UNE ENTREE</a>
+            <a href="addMeal.php?cat=UNE ENTREE" class="waves-effect waves-light center-align btn-flat col s4 offset-s4">ENREGISTRER UNE ENTREE</a>
+
+            <div class="col s8 offset-s2" >
+                {% for meal in meals %}
+                    {% if meal['category']=='starter' %}
+                        <h3 class="center" >{{meal['name']}}</h3>
+                    {% endif %}
+                {% endfor %}
+            </div>
 
         </div>
         <div id="meals" class="col s12">
-            <a href="addMeal.php?cat=UN PLAT" class="waves-effect waves-light center-align btn-flat col s3 offset-s5">ENREGISTRER UNE VIANDE OU POISSON</a>
+            <a href="addMeal.php?cat=UN PLAT" class="waves-effect waves-light center-align btn-flat col s4 offset-s4">ENREGISTRER UNE VIANDE OU POISSON</a>
+
+            <div class="col s8 offset-s2" >
+                {% for meal in meals %}
+                    {% if meal['category']=='meal' %}
+                        <h3 class="center" >{{meal['name']}}</h3>
+                    {% endif %}
+                {% endfor %}
+            </div>
 
         </div>
         <div id="garnishes" class="col s12">
-            <a href="addMeal.php?cat=UN ACCOMPAGNEMENT" class="waves-effect waves-light center-align btn-flat col s3 offset-s5">ENREGISTRER UN LEGUME</a>
+            <a href="addMeal.php?cat=UN ACCOMPAGNEMENT" class="waves-effect waves-light center-align btn-flat col s4 offset-s4">ENREGISTRER UN LEGUME</a>
+
+            <div class="col s8 offset-s2" >
+                {% for meal in meals %}
+                    {% if meal['category']=='garnish' %}
+                        <h3 class="center" >{{meal['name']}}</h3>
+                    {% endif %}
+                {% endfor %}
+            </div>
 
         </div>
         <div id="desserts" class="col s12">
-            <a href="addMeal.php?cat=UN DESSERT" class="waves-effect waves-light center-align btn-flat col s3 offset-s5">ENREGISTRER UN DESSERT</a>
+            <a href="addMeal.php?cat=UN DESSERT" class="waves-effect waves-light center-align btn-flat col s4 offset-s4">ENREGISTRER UN DESSERT</a>
+
+            <div class="col s8 offset-s2" >
+                {% for meal in meals %}
+                    {% if meal['category']=='dessert' %}
+                        <h3 class="center" >{{meal['name']}}</h3>
+                    {% endif %}
+                {% endfor %}
+            </div>
 
         </div>
         <div id="drinks" class="col s12">
-            <a href="addMeal.php?cat=UNE BOISSON" class="waves-effect waves-light center-align btn-flat col s3 offset-s5">ENREGISTRER UNE BOISSON</a>
-          
+            <a href="addMeal.php?cat=UNE BOISSON" class="waves-effect waves-light center-align btn-flat col s4 offset-s4">ENREGISTRER UNE BOISSON</a>
+
+            <div class="col s8 offset-s2" >
+                {% for meal in meals %}
+                    {% if meal['category']=='drink' %}
+                        <h3 class="center" >{{meal['name']}}</h3>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
         </div>
     </div>
 

@@ -18,10 +18,14 @@ class User
 		$this->conn = $db;
     }
 	
-	public function runQuery($sql)
+	public static function findOne($user)
 	{
-		$stmt = $this->conn->prepare($sql);
-		return $stmt;
+		$conn = new Database();
+        $conn = $conn->dbConnection();
+		$sql = "SELECT * FROM users WHERE user_id=:user";
+		$stmt = $conn->prepare($sql);
+        $stmt->execute(array(":user"=>$user));
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
 	}
 	
 	public function register($uname,$umail,$upass)

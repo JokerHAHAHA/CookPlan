@@ -18,7 +18,7 @@ Class Meal
         $sql  = "SELECT * FROM meals WHERE user=:user";
         $stmt = $conn->prepare($sql);
         $stmt->execute(array(":user"=>$user));
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public static function create($name,$category,$type,$user) {
