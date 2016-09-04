@@ -21,10 +21,16 @@
         <div id="aperitifs" class="row">
             <a href="addMeal.php?cat=UN APERITIF" class="waves-effect waves-light center-align btn-flat col s4 offset-s4">ENREGISTRER UN APERITIF</a>
             
-            <div class="col s8 offset-s2" >
+            <div class="center col s8 offset-s2" >
                 {% for meal in meals %}
                     {% if meal['category']=='aperitif' %}
-                        <h3 class="center" >{{meal['name']}}</h3>
+                        <div class="divider"></div>
+                        <div>
+                            <h3 class="inline-block" >{{meal['name']}}</h3>
+                            <form class="form-delete right" method="post">
+                                <button type="submit" name="btn-delete" class="btn-delete waves-effect waves-light btn "><i class="large material-icons">delete</i></button>
+                            </form>
+                        </div>
                     {% endif %}
                 {% endfor %}
             </div>
