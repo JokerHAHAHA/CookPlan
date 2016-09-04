@@ -5,7 +5,7 @@
 
     <h3 class="center">MODIFIER</h3>
 
-    <form class="padding-top row" action="updateMeal.php?" method="post">
+    <form class="padding-top row" action="updateMeal.php?target={{meal['id']}}" method="post">
 
         <span class="col s1 offset-s4">
             <input name="type" type="radio" id="hot" value="hot" {% if meal['type']=="hot" %}checked{% endif %} />

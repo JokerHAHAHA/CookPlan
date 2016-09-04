@@ -34,18 +34,16 @@ if($auth_user->is_loggedin())
     //manage update meal
     else if (isset($_POST['update-meal']))
     {
-        $resp = Meal::create($_POST['name'], $category, $_POST['type'], $_SESSION['user_session']);
+        $target_id = $_GET['target'];
+        $target_name = $_POST['name'];
+        $target_category = Meal::findOne($target_id)['category'];
+        $target_type = $_POST['type'];
+        $resp = Meal::update($target_id, $target_name, $target_category, $target_type);
 
         if ($resp)
         {
-            //load datas
-            $currentUser_id = $_SESSION['user_session'];
-            $user = User::findOne($currentUser_id);
-            echo $twig->render("addMeal.html.twig", array(
-                'user' =>$user,
-                'title'=>$_GET['cat'],
-                'msg' =>$_GET['cat']." DE PLUS"
-                ));
+            //redirect
+            $auth_user->redirect('./meals.php');
         }
         else
         {
@@ -53,8 +51,8 @@ if($auth_user->is_loggedin())
             $currentUser_id = $_SESSION['user_session'];
             $user = User::findOne($currentUser_id);
             echo $twig->render("addMeal.html.twig", array(
-                'title'=>$_GET['cat'],
-                'msg'  =>"IL Y A EU UN PROBLEME AVEC L'ENREGISTREMENT"
+                'meal' =>$meal,
+                'msg'  =>"IL Y A EU UN PROBLEME AVEC LA MODIFICATION"
                 ));
         }
     }
