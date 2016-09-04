@@ -57,7 +57,7 @@ Class Meal
             ":category"=>$category,
             ":type"=>$type,
             ));
-        return true;
+        return $stmt;
     }
     public static function delete($id) {
         $conn = new Database();
