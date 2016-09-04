@@ -52,4 +52,15 @@ Class Meal
             ));
         return true;
     }
+    public static function delete($id) {
+        $conn = new Database();
+        $conn = $conn->dbConnection();
+        $sql  = "DELETE FROM meals
+                 WHERE id=:id";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(array(
+            ":id"=>$id,
+            ));
+        return $stmt;
+    }
 }

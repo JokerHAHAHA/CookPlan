@@ -28,32 +28,34 @@
     {% block body %}
 
         {% block navbar %}
-            <nav>
-                <div class="nav-wrapper">
-                    <a href="./meals.php" class="brand-logo">Cook Plan</a>
-                    
-                    {% if user is defined %}
-                        <span class="brand-logo center">
-                            {{user['user_name']}}
-                            <form method="post">
-                                <button class="btn-signout" type="submit" name="btn-signout">me déconnecter</button>
-                            </form>
-                        </span>
-                    {% endif %}
+            <div class="navbar-fixed">
+                <nav class="teal lighten-1">
+                    <div class="nav-wrapper">
+                        <a href="./meals.php" class="brand-logo">Cook Plan</a>
+                        
+                        {% if user is defined %}
+                            <span class="brand-logo center">
+                                {{user['user_name']}}
+                                <form method="post">
+                                    <button class="btn-signout" type="submit" name="btn-signout">me déconnecter</button>
+                                </form>
+                            </span>
+                        {% endif %}
 
-                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="./meals.php">MES PLATS</a></li>
-                        <li><a href="./plans.php">MON PLANNING</a></li>
-                        <li><a href="./">MES COURSES</a></li>
-                    </ul>
-                    <ul class="side-nav" id="mobile-demo">
-                        <li><a href="badges.html">MES PLATS</a></li>
-                        <li><a href="collapsible.html">MON PLANNING</a></li>
-                        <li><a href="mobile.html">MES COURSES</a></li>
-                    </ul>
-                </div>
-            </nav>
+                        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                        <ul class="right hide-on-med-and-down">
+                            <li><a href="./meals.php">MES PLATS</a></li>
+                            <li><a href="./plans.php">MON PLANNING</a></li>
+                            <li><a href="./">MES COURSES</a></li>
+                        </ul>
+                        <ul class="side-nav" id="mobile-demo">
+                            <li><a href="badges.html">MES PLATS</a></li>
+                            <li><a href="collapsible.html">MON PLANNING</a></li>
+                            <li><a href="mobile.html">MES COURSES</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         {% endblock %}
 
     {% endblock %}
