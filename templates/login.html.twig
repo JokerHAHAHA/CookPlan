@@ -1,34 +1,84 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <div class="container row">
 
-      <form class="col s12" method="post">
+  {# sign-in #}
+  <div class="container row">
 
-        <h1>SE CONNECTER</h1>
-        <hr>
-        <div class="row">
-          <div class="input-field col s6">
-            <input id="last_name" type="text" name="login" value="papa" class="validate">
-            <label for="last_name">Ton Nom</label>
-          </div>
+    <form class="col s12" method="post">
+
+      <h1 class="center" >SE CONNECTER</h1>
+
+      <div class="row">
+        <div class="input-field col s6 offset-s3">
+          <input id="last_name" type="text" name="login" value="papa" class="validate">
+          <label for="last_name">Ton Nom</label>
         </div>
+      </div>
 
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="password" type="password" name="password" value="rastafari" class="validate">
-            <label for="password">Password</label>
-          </div>
+      <div class="row">
+        <div class="input-field col s6 offset-s3">
+          <input id="password" type="password" name="password" value="rastafari" class="validate">
+          <label for="password">Mot de Passe</label>
         </div>
+      </div>
 
-        <button type="submit" name="btn-signin" class="waves-effect waves-light btn">connexion</button>
+      <button type="submit" name="btn-signin" class="waves-effect waves-light btn col s6 offset-s3">connexion</button>
 
-      </form>
+    </form>
 
-      {% if error is defined %}
-        <p>{{error}}</p>
-      {% endif %}
+    {% if errorSignin is defined %}
+      <p>{{errorSignin}}</p>
+    {% endif %}
 
-    </div>
+  </div>
+  {# end sign in #}
 
-  {% endblock %}
+  <div class="divider"></div>
+
+  {# sign up #}
+  <div class="container row">
+
+    <form class="col s12" method="post">
+
+      <h1 class="center" >S'ENREGISTRER</h1>
+
+      <div class="row">
+        <div class="input-field col s6 offset-s3">
+          <input id="last_name" type="text" name="login" classe="validate">
+          <label for="last_name">Ton Nom</label>
+        </div>
+        {% if errorSignup['login'] is defined %}
+          <p>{{errorSignup['login']}}</p>
+        {% endif %}
+      </div>
+
+
+      <div class="row">
+        <div class="input-field col s6 offset-s3">
+          <input id="email" type="email" name="email" class="validate">
+          <label for="email">Adresse e-mail</label>
+        </div>
+        {% if errorSignup['email'] is defined %}
+          <p>{{errorSignup['email']}}</p>
+        {% endif %}
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6 offset-s3">
+          <input id="password" type="password" name="password" class="validate">
+          <label for="password">Mot de Passe</label>
+        </div>
+        {% if errorSignup['password'] is defined %}
+          <p>{{errorSignup['password']}}</p>
+        {% endif %}
+      </div>
+
+      <button type="submit" name="btn-signup" class="waves-effect waves-light btn col s6 offset-s3">s'enregistrer</button>
+
+    </form>
+
+  </div>
+  {# end sign up #}
+
+{% endblock %}
