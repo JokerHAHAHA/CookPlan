@@ -21,6 +21,10 @@ require '../src/Autoloader.php';
 Autoloader::require();
 
 $auth_user = new User();
+//load datas
+$currentUser_id = $_SESSION['user_session'];
+$user = User::findOne($currentUser_id);
+$meals = Meal::findAll($_SESSION['user_session']);
 
 //check if connected
 if($auth_user->is_loggedin())
@@ -32,13 +36,20 @@ if($auth_user->is_loggedin())
         $auth_user->doLogout();
         $auth_user->redirect('../index.php');
     }
+    else if(isset($_POST['btn-delete']))
+    {
+        //delete meal
+        $meal_id = $_GET['target'];
+        Meal::delete($meal_id);
+        //reload datas
+        $meals = Meal::findAll($user['user_id']);
+        echo $twig->render('meals.html.twig', array(
+            'user' =>$user,
+            'meals'=>$meals
+            ));
+    }
     else
     {
-        //load datas
-        $currentUser_id = $_SESSION['user_session'];
-        $user = User::findOne($currentUser_id);
-        $meals = Meal::findAll($_SESSION['user_session']);
-
         echo $twig->render('meals.html.twig', array(
             'user' =>$user,
             'meals'=>$meals
