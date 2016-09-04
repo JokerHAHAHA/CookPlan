@@ -36,6 +36,7 @@ if($auth_user->is_loggedin())
         $auth_user->doLogout();
         $auth_user->redirect('../index.php');
     }
+    //manage delete
     else if(isset($_POST['btn-delete']))
     {
         //delete meal

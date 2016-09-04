@@ -25,12 +25,13 @@
                 {% for meal in meals %}
                     {% if meal['category']=='aperitif' %}
                         <div class="divider"></div>
-                        <div>
-                            <h3 class="inline-block">{{meal['name']}}</h3>
-                            <form action="meals.php?target={{meal['id']}}" class="form-delete right" method="post">
-                                <button type="submit" name="btn-delete" class="btn-delete waves-effect waves-light btn red"><i class="large material-icons">delete</i></button>
-                            </form>
-                        </div>
+                        <h3 class="inline-block">{{meal['name']}}</h3>
+                        <form action="meals.php?target={{meal['id']}}" class="form-delete right" method="post">
+                            <button type="submit" name="btn-delete" class="btn-delete waves-effect waves-light btn red"><i class="large material-icons">delete</i></button>
+                        </form>
+                        <form action="updateMeal.php?target={{meal['id']}}" class="form-update right" method="post">
+                            <button type="submit" name="btn-update" class="btn-update waves-effect waves-light btn orange"><i class="large material-icons">mode_edit</i></button>
+                        </form>
                     {% endif %}
                 {% endfor %}
             </div>
@@ -48,6 +49,9 @@
                         <form action="meals.php?target={{meal['id']}}" class="form-delete right" method="post">
                             <button type="submit" name="btn-delete" class="btn-delete waves-effect waves-light btn red"><i class="large material-icons">delete</i></button>
                         </form>
+                        <form action="updateMeal.php?target={{meal['id']}}" class="form-update right" method="post">
+                            <button type="submit" name="btn-update" class="btn-update waves-effect waves-light btn orange"><i class="large material-icons">mode_edit</i></button>
+                        </form>
                     {% endif %}
                 {% endfor %}
             </div>
@@ -64,6 +68,9 @@
                         <form action="meals.php?target={{meal['id']}}" class="form-delete right" method="post">
                             <button type="submit" name="btn-delete" class="btn-delete waves-effect waves-light btn red"><i class="large material-icons">delete</i></button>
                         </form>
+                        <form action="updateMeal.php?target={{meal['id']}}" class="form-update right" method="post">
+                            <button type="submit" name="btn-update" class="btn-update waves-effect waves-light btn orange"><i class="large material-icons">mode_edit</i></button>
+                        </form>
                     {% endif %}
                 {% endfor %}
             </div>
@@ -79,6 +86,9 @@
                         <h3 class="inline-block">{{meal['name']}}</h3>
                         <form action="meals.php?target={{meal['id']}}" class="form-delete right" method="post">
                             <button type="submit" name="btn-delete" class="btn-delete waves-effect waves-light btn red"><i class="large material-icons">delete</i></button>
+                        </form>
+                        <form action="updateMeal.php?target={{meal['id']}}" class="form-update right" method="post">
+                            <button type="submit" name="btn-update" class="btn-update waves-effect waves-light btn orange"><i class="large material-icons">mode_edit</i></button>
                         </form>
                     {% endif %}
                 {% endfor %}
@@ -97,6 +107,9 @@
                         <form action="meals.php?target={{meal['id']}}" class="form-delete right" method="post">
                             <button type="submit" name="btn-delete" class="btn-delete waves-effect waves-light btn red"><i class="large material-icons">delete</i></button>
                         </form>
+                        <form action="updateMeal.php?target={{meal['id']}}" class="form-update right" method="post">
+                            <button type="submit" name="btn-update" class="btn-update waves-effect waves-light btn orange"><i class="large material-icons">mode_edit</i></button>
+                        </form>
                     {% endif %}
                 {% endfor %}
             </div>
@@ -112,6 +125,9 @@
                         <h3 class="inline-block">{{meal['name']}}</h3>
                         <form action="meals.php?target={{meal['id']}}" class="form-delete right" method="post">
                             <button type="submit" name="btn-delete" class="btn-delete waves-effect waves-light btn red"><i class="large material-icons">delete</i></button>
+                        </form>
+                        <form action="updateMeal.php?target={{meal['id']}}" class="form-update right" method="post">
+                            <button type="submit" name="btn-update" class="btn-update waves-effect waves-light btn orange"><i class="large material-icons">mode_edit</i></button>
                         </form>
                     {% endif %}
                 {% endfor %}
