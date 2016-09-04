@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{parent()}}
+
+    <h3 class="center">MODIFIER</h3>
+
+    <form class="padding-top row" action="updateMeal.php?" method="post">
+
+        <span class="col s1 offset-s4">
+            <input name="type" type="radio" id="hot" value="hot" {% if meal['type']=="hot" %}checked{% endif %} />
+            <label for="hot">Chaud</label>
+        </span>
+
+        <span class="col s1 offset-s2">
+            <input name="type" type="radio" id="cold" value="cold" {% if meal['type']=="cold" %}checked{% endif %} />
+            <label for="cold">Froid</label>
+        </span>
+
+        <div class="padding-top">
+            <div class="input-field col s4 offset-s4">
+                <input id="name" type="text" name="name" class="validate" value="{{meal['name']}}">
+                <label for="name">Son petit nom</label>
+            </div>
+        </div>
+
+        <button type="submit" name="update-meal" class="col s4 offset-s4 waves-effect waves-light btn">enregistrer</button>
+
+    </form>
+
+    {% if msg is defined %}
+        <h6 class="center">{{msg}}</h6>
+    {% endif %}
+
+{% endblock %}
+

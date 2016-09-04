@@ -21,6 +21,15 @@ Class Meal
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    public static function findOne($id) {
+        $conn = new Database();
+        $conn = $conn->dbConnection();
+        $sql  = "SELECT * FROM meals WHERE id=:id";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(array(":id"=>$id));
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
+
     public static function create($name,$category,$type,$user) {
         $conn = new Database();
         $conn = $conn->dbConnection();
@@ -31,9 +40,7 @@ Class Meal
         $stmt->bindparam(":category", $category);
         $stmt->bindparam(":type", $type);                                        
         $stmt->bindparam(":user", $user);                                        
-                
         $stmt->execute();
-  
         return true;
     }
 
