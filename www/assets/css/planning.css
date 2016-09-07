@@ -1,0 +1,17 @@
+.planning
+{
+    text-align: center;
+    width: 90%;
+    border: 2px solid blue;
+}
+.day
+{   
+    width: 50%;
+    margin: auto;
+    border: 2px solid green;
+}
+.menu
+{   
+    margin: auto;
+    border: 2px solid green;
+}

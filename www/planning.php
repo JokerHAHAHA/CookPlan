@@ -41,8 +41,10 @@ if($auth_user->is_loggedin())
         $duration = $_GET['duration'];
         $planning = Planning::makePlanning($meals, $duration);
 
-        var_dump($planning);die;
-
+        echo $twig->render('planning.html.twig', array(
+            'user' =>$user,
+            'planning'=>$planning
+            ));
     }
     else
     {
