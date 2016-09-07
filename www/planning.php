@@ -6,17 +6,16 @@ use CookPlan\Autoloader;
 use CookPlan\Model\Database;
 use CookPlan\Model\User;
 use CookPlan\Model\Meal;
+use CookPlan\Model\Planning;
 
-//load twig
+//load Twig
 include_once('../twig/lib/Twig/Autoloader.php');
 Twig_Autoloader::register();
-
-$loader = new Twig_Loader_Filesystem('../templates'); 
+$loader = new Twig_Loader_Filesystem('../templates'); // Dossier contenant les templates
 $twig = new Twig_Environment($loader, array(
   'cache' => false
   ));
 
-//load classes
 require '../src/Autoloader.php';
 Autoloader::load();
 
@@ -24,7 +23,7 @@ $auth_user = new User();
 //load datas
 $currentUser_id = $_SESSION['user_session'];
 $user = User::findOne($currentUser_id);
-$meals = Meal::findAll($_SESSION['user_session']);
+$meals = Meal::findAll($currentUser_id);
 
 //check if connected
 if($auth_user->is_loggedin())
@@ -36,22 +35,18 @@ if($auth_user->is_loggedin())
         $auth_user->doLogout();
         $auth_user->redirect('../index.php');
     }
-    //manage delete
-    else if(isset($_POST['btn-delete']))
+    //manage schedule
+    else if(isset($_POST['btn-planning']))
     {
-        //delete meal
-        $meal_id = $_GET['target'];
-        Meal::delete($meal_id);
-        //reload datas
-        $meals = Meal::findAll($user['user_id']);
-        echo $twig->render('meals.html.twig', array(
-            'user' =>$user,
-            'meals'=>$meals
-            ));
+        $duration = $_GET['duration'];
+        $planning = Planning::makePlanning($meals, $duration);
+
+        var_dump($planning);die;
+
     }
     else
     {
-        echo $twig->render('meals.html.twig', array(
+        echo $twig->render('planning.html.twig', array(
             'user' =>$user,
             'meals'=>$meals
             ));

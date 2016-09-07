@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    {{parent()}}
+
+    <div class="btns-planning">
+        <form class="btn-planning" action="planning.php?duration=1" method="post">
+            <button type="submit" name="btn-planning" class="waves-effect waves-light btn col s6 offset-s3">jour</button>
+        </form>
+        <form class="btn-planning" action="planning.php?duration=2" method="post">
+            <button type="submit" name="btn-planning" class="waves-effect waves-light btn col s6 offset-s3">semaine</button>
+        </form>
+        <form class="btn-planning" action="planning.php?duration=14" method="post">
+            <button type="submit" name="btn-planning" class="waves-effect waves-light btn col s6 offset-s3">quinzaine</button>
+        </form>
+        <form class="btn-planning" action="planning.php?duration=30" method="post">
+            <button type="submit" name="btn-planning" class="waves-effect waves-light btn col s6 offset-s3">mois</button>
+        </form>
+    </div>
+
+{% endblock %}

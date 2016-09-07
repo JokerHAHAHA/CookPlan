@@ -17,4 +17,4 @@ $twig = new Twig_Environment($loader, array(
 
 //load classes
 require '../src/Autoloader.php';
-Autoloader::require();
+Autoloader::load();
