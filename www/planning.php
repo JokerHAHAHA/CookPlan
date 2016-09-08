@@ -39,7 +39,8 @@ if($auth_user->is_loggedin())
     else if(isset($_POST['btn-planning']))
     {
         $duration = $_GET['duration'];
-        $planning = Planning::makePlanning($meals, $duration);
+
+        $planning = Planning::createPlanning($meals, $duration, $user['user_id']);
 
         echo $twig->render('planning.html.twig', array(
             'user' =>$user,
