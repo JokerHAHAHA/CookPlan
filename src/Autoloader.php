@@ -7,7 +7,7 @@ namespace CookPlan;
 */
 class Autoloader
 {
-    static function require(){
+    static function load(){
 
         spl_autoload_register(array(__CLASS__, 'autoload'));
     }

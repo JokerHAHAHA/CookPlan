@@ -15,7 +15,7 @@ $twig = new Twig_Environment($loader, array(
   ));
 
 require '../src/Autoloader.php';
-Autoloader::require();
+Autoloader::load();
 
 $login = new User();
 
