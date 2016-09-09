@@ -43,15 +43,17 @@ if($auth_user->is_loggedin())
         $planning = Planning::createPlanning($meals, $duration, $user['user_id']);
 
         echo $twig->render('planning.html.twig', array(
-            'user' =>$user,
+            'user'    =>$user,
             'planning'=>$planning
             ));
     }
     else
     {
+        $planning = Planning::findOne(6,3);
+        // var_dump($Planning);die;
         echo $twig->render('planning.html.twig', array(
-            'user' =>$user,
-            'meals'=>$meals
+            'user'    =>$user,
+            'planning'=>$planning
             ));
     }
 

@@ -88,7 +88,7 @@ Class Planning
                 array_push($used_id, $drinks[$targetDrink]['id']);
                 $planning[$day][$menu]['drink'] = $drinks[$targetDrink];
                 self::createPlanned($drinks[$targetDrink], $planned_date, $menu, $user);
-            
+
             }//end for menu 
         }//end for day
 
@@ -100,7 +100,7 @@ Class Planning
         $conn = new Database();
         $conn = $conn->dbConnection();
         $sql  = "INSERT INTO planning(planned_date,menu,user,meal_id,meal_name,meal_category,meal_type)
-                 VALUES (:planned_date,:menu,:user,:meal_id,:meal_name,:meal_category,:meal_type)";
+        VALUES (:planned_date,:menu,:user,:meal_id,:meal_name,:meal_category,:meal_type)";
         $stmt = $conn->prepare($sql);
         $stmt->bindparam(":planned_date", $planned_date);
         $stmt->bindparam(":menu", $menu);
@@ -119,33 +119,30 @@ Class Planning
         $dayToSeconds = 3600 * 24;
         $startPlanning = time() - (($today * $dayToSeconds) - $dayToSeconds);
         $end = $startPlanning + ($duration * $dayToSeconds);
-
+        $decalDays = $today - 1;
+        $planning = array();
 
         $conn = new Database();
         $conn = $conn->dbConnection();
-        $sql = "SELECT * FROM planned
+        $sql = "SELECT * FROM planning
                 WHERE user=:user 
                 AND planned_date >= :startPlanning 
-                AND planned_date <= :endPlanning";
+                AND planned_date <= :endPlanning
+                ORDER BY planned_date,
+                         menu";
         $stmt = $conn->prepare($sql);
         $stmt->execute(array(
             ":user"          =>$user,
             ":startPlanning" =>$startPlanning,
             ":endPlanning"   =>$end));
         $meals = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        for ($addedDay=0; $addedDay < $decalDays; $addedDay++) { 
+            array_push($planning, "");
+        }
 
-        for ($day=0; $day = $duration ; $day++)
-        { 
-            for ($menu=0; $menu < 2; $menu++)
-            { 
-                foreach ($meals as $meal)
-                {
-                    if ($meal['menu'] == $menu && date('d/m/Y',$meal['planned_date'] == date('d/m/Y', $startPlanning + ($day * $dayToSeconds))))
-                    {
-                        $planning[$day][$menu][$meal['category']] = $meal;
-                    }
-                }
-            }
+        foreach ($meals as $meal)
+        {
+            $planning[date('d.m.Y', $meal['planned_date'])][$meal['menu']][$meal['meal_category']] = $meal;
         }
 
         return $planning;
